@@ -1,0 +1,65 @@
+.calendar-wrapper{
+    width: 400px;
+    height: auto;
+    background: red;
+    overflow: hidden;
+}
+
+.calendar-container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50px auto;
+}
+
+.current-month-year{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.calendar-days-detail{
+    background: skyblue;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-days-name,
+.calendar-days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 30px;
+}
+
+
+
+.calendar-days{
+    grid-template-rows: repeat(5, 1fr);
+    height: 300px;
+}
+
+.calendar-days-name div,
+.calendar-days div{
+    border: 1px solid black;
+    border-collapse: collapse;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formatters{
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.bs-to-ad{
+    margin-top: 3rem;
+}
+
+.formatter{
+    margin-top: 2rem;
+}
