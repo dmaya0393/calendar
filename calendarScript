@@ -1,11 +1,9 @@
 import {BS_CALENDAR_DATA} from './constants.js'
+import './dateFormatter.js';
 
 const LEAP_YEAR_MONTHLY_DAYS_COUNT = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 const NON_LEAP_YEAR_MONTHLY_DAYS_COUNT = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
 const AD_YEAR_LIMITS = [1944, 2043]
-
-
 
 const leapYearCheck = (year) =>{
     return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)
@@ -37,7 +35,6 @@ const readAD = () =>{
     })
 }
 
-
 const validateAD_Date = (adDate)=>{
     const {month, date, year} = breakDate(adDate)
     return validateAgainst_AD_Limits(month, date, year)
@@ -59,7 +56,6 @@ const validateAgainst_AD_Limits = (monthValue, dateValue, yearValue) =>{
 }
 
 const validateAgainst_BS_Limits = (month, date, year)=>{
-    // console.log('CHECK', month, date, year)
     const yearIterationAdjuster = year - 2000
     if(yearIterationAdjuster < 0 || yearIterationAdjuster > 99){
         alert('Ran into outbound year case.')
@@ -80,7 +76,7 @@ const validateAgainst_BS_Limits = (month, date, year)=>{
     return true
 }
 
-const breakDate = (adDate) =>{
+export const breakDate = (adDate) =>{
     const parts = adDate.split(/[-\/\s]/);
     return {month: parts[0], date: parts[1], year: parts[2]}
 }
@@ -126,7 +122,6 @@ const daysCount_From_1943_04_14_till_input_date = (month, date, year) =>{
 }
 
 const AD_daysCount_to_BS_Date = (daysCount) =>{
-
     let year= 0, month=0, date=1, breakFlag;
 
     while(!breakFlag){
@@ -155,11 +150,10 @@ const AD_daysCount_to_BS_Date = (daysCount) =>{
     return {year, month, date}
 }
 
-const convert_AD_to_BS = (adDate) =>{
+export const convert_AD_to_BS = (adDate) =>{
     const {month, date, year} = breakDate(adDate)
     return AD_daysCount_to_BS_Date(daysCount_From_1943_04_14_till_input_date(month, date, year))
 }
-
 
 const clearData = () =>{
     const outputElement = document.querySelector('.bs-output')
@@ -197,11 +191,8 @@ const formatDate = (dateString, formattingChar) =>{
     return `${parts[0]}${formattingChar}${parts[1]}${formattingChar}${parts[2]}`
 }
 
-
-
 const readBS =()=>{
     const element = document.querySelector('.bs-input')
-    let ad_date;
     element.addEventListener('input', ()=>{
         let isAlertShown = false
         const bsDate = element.value
@@ -210,13 +201,10 @@ const readBS =()=>{
                 isAlertShown = true
                 const {month, date, year} = breakDate(bsDate)
                 if(validateAgainst_BS_Limits(month, date, year)){
-                    convert_BS_to_AD(month, date, year)
-                    // const {year, month, date} = convert_AD_to_BS(bsDate)
-                    // if(validateAgainst_BS_Limits(month, date, year)){
-                    //     ad_date = `${month}-${date}-${year}`
-                    //     const ad_date_element = document.querySelector('.ad-output')
-                    //     ad_date_element.value= ad_date
-                    // }
+                    const {adYear, adMonth, adDate} = convert_BS_to_AD(month, date, year)
+                    const adDateString = `${adMonth}-${adDate}-${adYear}`
+                    const bs_date_element = document.querySelector('.ad-output')
+                    bs_date_element.value= adDateString
                 }else{
                     alert('Reject Case')
                 }
@@ -227,47 +215,33 @@ const readBS =()=>{
 }
 
 const BS_days_count = (month, date, year) =>{
-    // console.log(month, date, year)
     let daysCount = 0;
-
     const yearIndexInBS_CALENDAR_DATA = year - 1999
-    // console.log('Index', yearIndexInBS_CALENDAR_DATA)
 
     let i = 0
     while(i < yearIndexInBS_CALENDAR_DATA){
-
         const yearCalendar = BS_CALENDAR_DATA[i]
         const [monthlyDays, totalDays] = yearCalendar
-        // console.log('Year', monthlyDays, totalDays)
 
         if(i+1 === yearIndexInBS_CALENDAR_DATA){
-            // console.log('In the year')
             let j = 0
             while(j < month){
                 if(j+1 === Number(month)){
-                    // console.log('In the month')
                     let k = 1
                     while(k <= date){
                         daysCount++
                         k++
                     }
                 }else{
-                    // console.log('Take whole days')
                     daysCount = daysCount + monthlyDays[j]
                 }
                 j++
             }
         } else{
-            // console.log('Take whole days')
             daysCount = daysCount + totalDays
         }
-
-
-
         i++
-        // console.log(i)
     }
-    // console.log('Days', daysCount)
     return daysCount;
 }
 
@@ -289,30 +263,50 @@ const get_AD_Date_From_BS_Days_Count = (daysCount) =>{
             breakYearlyIteration = true
     }
 
-
     const monthlyDaysArray = leapYearCheck(baseYear) ? LEAP_YEAR_MONTHLY_DAYS_COUNT : NON_LEAP_YEAR_MONTHLY_DAYS_COUNT 
             while(daysCount > monthlyDaysArray[ad_Month]){
-                console.log('Check For', daysCount, monthlyDaysArray[ad_Month])
                 daysCount = daysCount - monthlyDaysArray[ad_Month]
                 ad_Month % 12
                 ad_Month++
-                console.log('Rem Days', daysCount)
             }
-
     return {adYear: baseYear, adMonth: ad_Month + 1, adDate: daysCount}
 }
 
 const convert_BS_to_AD = (month, date, year) =>{
-    console.log('Initiating Conversion')
     const BS_date_days_count = BS_days_count(month, date, year)
     const {adYear, adMonth, adDate} = get_AD_Date_From_BS_Days_Count(BS_date_days_count)
-    console.log(adYear, adMonth, adDate)
+    return {adYear, adMonth, adDate}
 }
+
+
+const setupFormatter = () => {
+    const formatButton = document.querySelector('.formatter-btn');
+    const inputField = document.querySelector('.ad-to-format');
+    const outputField_fullAD = document.getElementById('formatted-date-ad');
+    const outputField_fullBS = document.getElementById('formatted-date-bs');
+    const outputField_abbAD = document.getElementById('formatted-date-abb-ad')
+    const outputField_abbBS = document.getElementById('formatted-date-abb-bs')
+
+    formatButton.addEventListener('click', () => {
+        const inputDate = inputField.value;
+
+        if (inputDate) {
+            outputField_fullAD.textContent = inputDate.monthFullNamed_EN("dd-mm-yyyy");
+            outputField_fullBS.textContent = inputDate.monthFullNamed_NP("dd-mm-yyyy");
+            outputField_abbAD.textContent = inputDate.monthAbbNamed_EN("mm-dd-yyyy");
+            outputField_abbBS.textContent = inputDate.monthAbbNamed_NP("yyyy-mm-dd");
+
+        } else {
+            outputField.textContent = 'Invalid date format!';
+        }
+    });
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     readAD()
     clearData()
     dateFormatter()
     readBS()
+    setupFormatter()
 })
 
