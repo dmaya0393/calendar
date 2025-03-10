@@ -1,0 +1,187 @@
+// STARTING WITH DMY
+
+// DMY_T12_DS
+// DMY_T12_DS_EN
+// DMY_T12_DF
+// DMY_T12_DF_EN
+// DMY_T24_DS
+// DMY_T24_DS_EN
+// DMY_T24_DF
+// DMY_T24_DF_EN
+
+/* =================================== */
+
+// STARTING WITH MDY
+
+// MDY_T12_DS
+// MDY_T12_DS_EN
+// MDY_T12_DF
+// MDY_T12_DF_EN
+// MDY_T24_DS
+// MDY_T24_DS_EN
+// MDY_T24_DF
+// MDY_T24_DF_EN
+
+/* =================================== */
+
+// STARTING WITH YMD
+
+// YMD_T12_DS
+// YMD_T12_DS_EN
+// YMD_T12_DF
+// YMD_T12_DF_EN
+// YMD_T24_DS
+// YMD_T24_DS_EN
+// YMD_T24_DF
+// YMD_T24_DF_EN
+
+/* =================================== */
+
+// STARTING WITH YDM
+
+// YDM_T12_DS
+// YDM_T12_DS_EN
+// YDM_T12_DF
+// YDM_T12_DF_EN
+// YDM_T24_DS
+// YDM_T24_DS_EN
+// YDM_T24_DF
+// YDM_T24_DF_EN
+
+/* =================================== */
+
+// STARTING WITH DMonY
+
+// DMonY_T12_DS
+// DMonY_T12_DS_EN
+// DMonY_T12_DS_NP-EN
+// DMonY_T12_DF
+// DMonY_T12_DF_EN
+// DMonY_T12_DF_NP-EN
+// DMonY_T24_DS
+// DMonY_T24_DS_EN
+// DMonY_T24_DS_NP-EN
+// DMonY_T24_DF
+// DMonY_T24_DF_EN
+// DMonY_T24_DF_NP-EN
+
+/* =================================== */
+
+// STARTING WITH MonDY
+
+// MonDY_T12_DS
+// MonDY_T12_DS_EN
+// MonDY_T12_DS_NP-EN
+// MonDY_T12_DF
+// MonDY_T12_DF_EN
+// MonDY_T12_DF_NP-EN
+// MonDY_T24_DS
+// MonDY_T24_DS_EN
+// MonDY_T24_DS_NP-EN
+// MonDY_T24_DF
+// MonDY_T24_DF_EN
+// MonDY_T24_DF_NP-EN
+
+/* =================================== */
+
+// STARTING WITH YMonD
+
+// YMonD_T12_DS
+// YMonD_T12_DS_EN
+// YMonD_T12_DS_NP-EN
+// YMonD_T12_DF
+// YMonD_T12_DF_EN
+// YMonD_T12_DF_NP-EN
+// YMonD_T24_DS
+// YMonD_T24_DS_EN
+// YMonD_T24_DS_NP-EN
+// YMonD_T24_DF
+// YMonD_T24_DF_EN
+// YMonD_T24_DF_NP-EN
+
+/* =================================== */
+
+// STARTING WITH YDMon
+
+// YDMon_T12_DS
+// YDMon_T12_DS_EN
+// YDMon_T12_DS_NP-EN
+// YDMon_T12_DF
+// YDMon_T12_DF_EN
+// YDMon_T12_DF_NP-EN
+// YDMon_T24_DS
+// YDMon_T24_DS_EN
+// YDMon_T24_DS_NP-EN
+// YDMon_T24_DF
+// YDMon_T24_DF_EN
+// YDMon_T24_DF_NP-EN
+
+/* =================================== */
+
+// STARTING WITH DMonthY
+
+// DMonthY_T12_DS
+// DMonthY_T12_DS_EN
+// DMonthY_T12_DS_NP-EN
+// DMonthY_T12_DF
+// DMonthY_T12_DF_EN
+// DMonthY_T12_DF_NP-EN
+// DMonthY_T24_DS
+// DMonthY_T24_DS_EN
+// DMonthY_T24_DS_NP-EN
+// DMonthY_T24_DF
+// DMonthY_T24_DF_EN
+// DMonthY_T24_DF_NP-EN
+
+/* =================================== */
+
+// STARTING WITH MonthDY
+
+// MonthDY_T12_DS
+// MonthDY_T12_DS_EN
+// MonthDY_T12_DS_NP-EN
+// MonthDY_T12_DF
+// MonthDY_T12_DF_EN
+// MonthDY_T12_DF_NP-EN
+// MonthDY_T24_DS
+// MonthDY_T24_DS_EN
+// MonthDY_T24_DS_NP-EN
+// MonthDY_T24_DF
+// MonthDY_T24_DF_EN
+// MonthDY_T24_DF_NP-EN
+
+/* =================================== */
+
+// STARTING WITH YMonthD
+
+// YMonthD_T12_DS
+// YMonthD_T12_DS_EN
+// YMonthD_T12_DS_NP-EN
+// YMonthD_T12_DF
+// YMonthD_T12_DF_EN
+// YMonthD_T12_DF_NP-EN
+// YMonthD_T24_DS
+// YMonthD_T24_DS_EN
+// YMonthD_T24_DS_NP-EN
+// YMonthD_T24_DF
+// YMonthD_T24_DF_EN
+// YMonthD_T24_DF_NP-EN
+
+/* =================================== */
+
+// STARTING WITH YDMonth
+
+// YDMonth_T12_DS
+// YDMonth_T12_DS_EN
+// YDMonth_T12_DS_NP-EN
+// YDMonth_T12_DF
+// YDMonth_T12_DF_EN
+// YDMonth_T12_DF_NP-EN
+// YDMonth_T24_DS
+// YDMonth_T24_DS_EN
+// YDMonth_T24_DS_NP-EN
+// YDMonth_T24_DF
+// YDMonth_T24_DF_EN
+// YDMonth_T24_DF_NP-EN
+
+/* =================================== */
